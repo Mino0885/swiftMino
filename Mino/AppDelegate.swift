@@ -19,11 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         self.window=UIWindow(frame:UIScreen.main.bounds)
-        let homeVc = LoginController.init()
-        let homeNavc = UINavigationController.init(rootViewController: homeVc)
-        homeNavc.navigationBar.isHidden = true
         
-        window?.rootViewController = homeNavc
+        //主界面导航控制器
+        let MainNavc = UINavigationController(rootViewController: MainController())
+        MainNavc.tabBarItem.image = UIImage(named: "pet")?.withRenderingMode(.alwaysTemplate)
+        MainNavc.tabBarItem.selectedImage = UIImage(named: "etp")?.withRenderingMode(.alwaysOriginal)
+        MainNavc.tabBarItem.title = "Main"
+        
+        let SecNavc = UINavigationController(rootViewController: SecViewController())
+        SecNavc.tabBarItem.image = UIImage(named: "etp")?.withRenderingMode(.alwaysOriginal)
+        SecNavc.tabBarItem.selectedImage = UIImage(named: "pet")?.withRenderingMode(.alwaysOriginal)
+        SecNavc.tabBarItem.title = "Sec"
+        
+        let thredNavc = UINavigationController(rootViewController: ThredViewController())
+        thredNavc.tabBarItem.image = UIImage(named: "pet")?.withRenderingMode(.alwaysOriginal)
+        thredNavc.tabBarItem.selectedImage = UIImage(named: "etp")?.withRenderingMode(.alwaysOriginal)
+        thredNavc.tabBarItem.title = "Thred"
+        let tabBarC = UITabBarController()
+        tabBarC.tabBar.tintColor = UIColor.init(red:  9/255.0, green: 187/255.0, blue: 7/255.0, alpha: 1)
+        // tabBarController的子视图控制器集合
+        tabBarC.viewControllers = [MainNavc,SecNavc,thredNavc]
+        window?.rootViewController = tabBarC
         window?.makeKeyAndVisible()
         return true
     }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E62DF8A20D20F5B0029E006 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E62DF8920D20F5B0029E006 /* SwitchView.swift */; };
+		3E62DF8E20D358840029E006 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E62DF8D20D358840029E006 /* MainController.swift */; };
 		3E86143E20D0D0D700B90F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86143D20D0D0D700B90F96 /* AppDelegate.swift */; };
 		3E86144020D0D0D700B90F96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86143F20D0D0D700B90F96 /* ViewController.swift */; };
 		3E86144620D0D0D700B90F96 /* Mino.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E86144420D0D0D700B90F96 /* Mino.xcdatamodeld */; };
@@ -49,10 +49,13 @@
 		3E86149920D0D24E00B90F96 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86147620D0D24E00B90F96 /* ConstraintLayoutSupport.swift */; };
 		3E86149A20D0D24E00B90F96 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86147720D0D24E00B90F96 /* ConstraintMaker.swift */; };
 		3E86149D20D0D39E00B90F96 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86149C20D0D39E00B90F96 /* LoginView.swift */; };
+		3EAB800020D8FEF900D50296 /* SecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAB7FFF20D8FEF900D50296 /* SecViewController.swift */; };
+		3EAB800220D8FF0600D50296 /* ThredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAB800120D8FF0600D50296 /* ThredViewController.swift */; };
+		3EAB800420D9038A00D50296 /* U2MsgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAB800320D9038A00D50296 /* U2MsgViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3E62DF8920D20F5B0029E006 /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
+		3E62DF8D20D358840029E006 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		3E86143A20D0D0D700B90F96 /* Mino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E86143D20D0D0D700B90F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E86143F20D0D0D700B90F96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +100,9 @@
 		3E86147620D0D24E00B90F96 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		3E86147720D0D24E00B90F96 /* ConstraintMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
 		3E86149C20D0D39E00B90F96 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3EAB7FFF20D8FEF900D50296 /* SecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecViewController.swift; sourceTree = "<group>"; };
+		3EAB800120D8FF0600D50296 /* ThredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThredViewController.swift; sourceTree = "<group>"; };
+		3EAB800320D9038A00D50296 /* U2MsgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = U2MsgViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +202,10 @@
 			isa = PBXGroup;
 			children = (
 				3E86149C20D0D39E00B90F96 /* LoginView.swift */,
-				3E62DF8920D20F5B0029E006 /* SwitchView.swift */,
+				3E62DF8D20D358840029E006 /* MainController.swift */,
+				3EAB7FFF20D8FEF900D50296 /* SecViewController.swift */,
+				3EAB800120D8FF0600D50296 /* ThredViewController.swift */,
+				3EAB800320D9038A00D50296 /* U2MsgViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,11 +282,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E86148120D0D24E00B90F96 /* LayoutConstraint.swift in Sources */,
+				3EAB800420D9038A00D50296 /* U2MsgViewController.swift in Sources */,
 				3E86148E20D0D24E00B90F96 /* LayoutConstraintItem.swift in Sources */,
 				3E86149120D0D24E00B90F96 /* ConstraintAttributes.swift in Sources */,
 				3E86147B20D0D24E00B90F96 /* ConstraintMakerEditable.swift in Sources */,
 				3E86149A20D0D24E00B90F96 /* ConstraintMaker.swift in Sources */,
-				3E62DF8A20D20F5B0029E006 /* SwitchView.swift in Sources */,
 				3E86148A20D0D24E00B90F96 /* ConstraintRelation.swift in Sources */,
 				3E86148020D0D24E00B90F96 /* ConstraintInsetTarget.swift in Sources */,
 				3E86148720D0D24E00B90F96 /* ConstraintView+Extensions.swift in Sources */,
@@ -287,15 +296,18 @@
 				3E86148320D0D24E00B90F96 /* ConstraintInsets.swift in Sources */,
 				3E86147A20D0D24E00B90F96 /* Constraint.swift in Sources */,
 				3E86144020D0D0D700B90F96 /* ViewController.swift in Sources */,
+				3EAB800220D8FF0600D50296 /* ThredViewController.swift in Sources */,
 				3E86147920D0D24E00B90F96 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				3E86147F20D0D24E00B90F96 /* Debugging.swift in Sources */,
 				3E86149820D0D24E00B90F96 /* ConstraintItem.swift in Sources */,
 				3E86148C20D0D24E00B90F96 /* ConstraintMakerExtendable.swift in Sources */,
 				3E86148920D0D24E00B90F96 /* ConstraintView.swift in Sources */,
 				3E86147C20D0D24E00B90F96 /* ConstraintLayoutSupportDSL.swift in Sources */,
+				3EAB800020D8FEF900D50296 /* SecViewController.swift in Sources */,
 				3E86149020D0D24E00B90F96 /* Typealiases.swift in Sources */,
 				3E86149720D0D24E00B90F96 /* ConstraintRelatableTarget.swift in Sources */,
 				3E86149320D0D24E00B90F96 /* ConstraintMakerFinalizable.swift in Sources */,
+				3E62DF8E20D358840029E006 /* MainController.swift in Sources */,
 				3E86148220D0D24E00B90F96 /* ConstraintPriority.swift in Sources */,
 				3E86143E20D0D0D700B90F96 /* AppDelegate.swift in Sources */,
 				3E86147820D0D24E00B90F96 /* UILayoutSupport+Extensions.swift in Sources */,

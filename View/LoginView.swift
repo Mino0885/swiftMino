@@ -127,8 +127,9 @@ class LoginController: UIViewController,UITextFieldDelegate {
     @objc private func submitAction(_ sender:UIButton){
         let alertContoller = UIAlertController(title: "确定信息", message: "确认信息无误", preferredStyle: .actionSheet)
         let alertAction = UIAlertAction(title: "确认", style: .default) { (action) in
-          self.navigationController?.pushViewController(MainController(), animated: true)
-            
+//            self.navigationController?.pushViewController(LoginController(), animated: true)
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
         let noAction = UIAlertAction(title: "NO!!!", style: .cancel, handler: nil)
         alertContoller.addAction(alertAction)
@@ -150,6 +151,8 @@ class LoginController: UIViewController,UITextFieldDelegate {
         pwdText.resignFirstResponder()
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
         UIApplication.shared.statusBarStyle = .lightContent
     }
     override func viewWillDisappear(_ animated: Bool) {
