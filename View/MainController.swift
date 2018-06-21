@@ -10,7 +10,7 @@ import UIKit
 
 class MainController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
-    let arry:[String] = ["用户1", "用户2", "用户3"]
+    var arry:[String] = ["用户1", "用户2", "用户3"]
     //模拟导航栏
     private lazy var toolBar: UIView = {
         let toolBar = UIView()
@@ -145,7 +145,8 @@ class MainController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = true
     }
 
     @objc func changeSite(_ sender: AnyObject) {
@@ -170,14 +171,30 @@ class MainController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        print("HELLO")
         view.tintColor = .red
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("HELLO")
         self.navigationController?.pushViewController(U2MsgViewController(), animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.delete
+    }
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "DELETE"
+    }
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        arry.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.top)
+    }
+   
 }
 
 //自定义cell
@@ -247,7 +264,4 @@ class MyCell: UITableViewCell {
         imageView.layer.borderColor = UIColor.red.cgColor
         return imageView
     }
-    
-    
-    
 }

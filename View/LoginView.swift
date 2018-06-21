@@ -151,8 +151,9 @@ class LoginController: UIViewController,UITextFieldDelegate {
         pwdText.resignFirstResponder()
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         UIApplication.shared.statusBarStyle = .lightContent
     }
     override func viewWillDisappear(_ animated: Bool) {
