@@ -7,12 +7,15 @@
 //
 
 import UIKit
-
+struct Msg {
+    var msgType:Int?
+    var msgSender:String?
+    var msg:String?
+}
 class U2MsgViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
-    var array = Array<String>()
+    var array = Array<Msg>()
     var flag = true
-    
-    
+    var imgFlag = true
     //模拟导航栏
     private lazy var toolBar: UIView = {
         let toolBar = UIView()
@@ -50,7 +53,7 @@ class U2MsgViewController: UIViewController, UITextFieldDelegate, UITableViewDel
         table.dataSource = self
         table.delegate = self
         table.backgroundColor = UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        table.tableFooterView = UIView()
+        table.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 40))
         table.separatorStyle = UITableViewCellSeparatorStyle.none
         table.estimatedRowHeight = 50
         table.rowHeight = UITableViewAutomaticDimension
@@ -126,22 +129,32 @@ class U2MsgViewController: UIViewController, UITextFieldDelegate, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         //添加假数据
-        array.append("你好")
-        array.append("pet")
-        array.append("你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好")
-        array.append("Image")
-        array.append("你好")
-        array.append("pet")
-        array.append("你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好")
-        array.append("Image")
-        array.append("你好")
-        array.append("pet")
-        array.append("你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好")
-        array.append("Image")
-        array.append("你好")
-        array.append("pet")
-        array.append("你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好")
-        array.append("Image")
+//        array.append("你好")
+//        array.append("pet")
+//        array.append("ABCDEFGHIJKLMNOPQRSTUVWXYZ,ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+//        array.append("Image")
+//        array.append("你好")
+//        array.append("pet")
+//        array.append("ABCDEFGHIJKLMNOPQRSTUVWXYZ,ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+//        array.append("Image")
+//        array.append("你好")
+//        array.append("pet")
+//        array.append("ABCDEFGHIJKLMNOPQRSTUVWXYZ,ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+//        array.append("Image")
+//        array.append("你好")
+//        array.append("pet")
+//        array.append("ABCDEFGHIJKLMNOPQRSTUVWXYZ,ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+//        array.append("Image")
+        array.append(Msg(msgType: 1, msgSender: "pet", msg: "你好"))
+        array.append(Msg(msgType: 1, msgSender: "etp", msg: "你好"))
+        array.append(Msg(msgType: 2, msgSender: "etp", msg: "pet"))
+        array.append(Msg(msgType: 2, msgSender: "pet", msg: "Image"))
+        array.append(Msg(msgType: 2, msgSender: "pet", msg: "Image"))
+        array.append(Msg(msgType: 1, msgSender: "pet", msg: "你好"))
+        array.append(Msg(msgType: 1, msgSender: "etp", msg: "你好"))
+        array.append(Msg(msgType: 2, msgSender: "etp", msg: "pet"))
+        array.append(Msg(msgType: 2, msgSender: "pet", msg: "Image"))
+        array.append(Msg(msgType: 2, msgSender: "pet", msg: "Image"))
         self.view.backgroundColor = UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         self.view.addSubview(toolBar)
         self.view.addSubview(infoView)
@@ -267,10 +280,13 @@ class U2MsgViewController: UIViewController, UITextFieldDelegate, UITableViewDel
     
     //设置tableview的cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let index = array.count - 1 - indexPath.row
-        let cell = MsgCell(style: UITableViewCellStyle.default, reuseIdentifier: array[indexPath.row], count: indexPath.row)
-//        cell.backgroundView = UIView()
-//        cell.contentView.transform = CGAffineTransform (scaleX: 1,y: -1);
+        if indexPath.row > 0 && array[indexPath.row - 1].msgSender == array[indexPath.row].msgSender {
+            imgFlag = false
+        }else{
+            imgFlag = true
+        }
+            
+        let cell = MsgCell(style: UITableViewCellStyle.default, msg: array[indexPath.row], imgFlag:imgFlag)
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -290,11 +306,11 @@ class MsgCell: UITableViewCell {
     var msgView:UIView?
     var label:UILabel?
     var imgeview:UIImageView?
-    var imgFlag = true
     
-     init(style: UITableViewCellStyle, reuseIdentifier: String?,count:Int) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.personalImage = makeMask(UIImageView(image: #imageLiteral(resourceName: "etp")))
+    
+    init(style: UITableViewCellStyle,msg:Msg,imgFlag:Bool) {
+        super.init(style: style, reuseIdentifier: msg.msg)
+        self.personalImage = makeMask(UIImageView(image: UIImage(named: msg.msgSender!)))
         self.msgView = {
             let view = UIView()
             view.backgroundColor = UIColor.white
@@ -302,27 +318,29 @@ class MsgCell: UITableViewCell {
             view.layer.masksToBounds = true
             return view
         }()
-        if count > 0 {
-            imgFlag = false
-        }
-        if count%2 == 0{
+        
+        if 1 == msg.msgType{
             self.label = {
                 let label = UILabel()
-                label.text = reuseIdentifier
+                label.text = msg.msg
                 label.lineBreakMode = NSLineBreakMode.byWordWrapping
                 label.numberOfLines = 0
                 label.sizeToFit()
                 return label
             }()
-            setUpCell(msgType: 0,imgFlag: imgFlag)
         }else {
             self.imgeview = {
                 let imgView = UIImageView()
-                imgView.image = UIImage(named: reuseIdentifier!)
+                imgView.image = UIImage(named: msg.msg!)
                 imgView.contentMode = UIViewContentMode.scaleAspectFill
                 return imgView
             }()
-            setUpCell(msgType: 1,imgFlag: imgFlag)
+        }
+        print(imgFlag)
+        if msg.msgSender == "pet" {
+            setUpCellR(msgType: msg.msgType!, imgFlag: imgFlag)
+        }else{
+            setUpCellL(msgType: msg.msgType!, imgFlag: imgFlag)
         }
         self.contentView.backgroundColor = UIColor.clear
     }
@@ -330,7 +348,43 @@ class MsgCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
         
     }
-    func setUpCell(msgType:Int ,imgFlag:Bool) {
+    func setUpCellR(msgType:Int ,imgFlag:Bool) {
+        if imgFlag {
+            self.contentView.addSubview(personalImage!)
+            personalImage?.snp.makeConstraints({ (make) in
+                make.top.equalTo(self.contentView).offset(30)
+                make.right.equalToSuperview().offset(-20)
+                make.bottom.lessThanOrEqualTo(self.contentView)
+            })
+        }
+        self.contentView.addSubview(msgView!)
+        msgView?.snp.makeConstraints({ (make) in
+            make.top.equalTo(self.contentView).offset(30)
+            make.right.equalToSuperview().offset(-80)
+            make.bottom.lessThanOrEqualTo(self.contentView)
+        })
+        if msgType == 1 {
+            msgView!.addSubview(label!)
+            label?.snp.makeConstraints({ (make) in
+                make.width.lessThanOrEqualTo(msgView!).offset(-20)
+                make.width.lessThanOrEqualTo(200)
+                make.height.lessThanOrEqualTo(msgView!).offset(-20)
+                make.centerY.equalTo(msgView!)
+                make.centerX.equalTo(msgView!)
+            })
+        }else if msgType == 2{
+            msgView!.addSubview(imgeview!)
+            imgeview?.snp.makeConstraints({ (make) in
+                make.width.lessThanOrEqualTo(200)
+                make.height.lessThanOrEqualTo(100)
+                make.width.lessThanOrEqualTo(msgView!).offset(-20)
+                make.height.lessThanOrEqualTo(msgView!).offset(-20)
+                make.center.equalTo(msgView!)
+            })
+        }
+        
+    }
+    func setUpCellL(msgType:Int ,imgFlag:Bool) {
         if imgFlag {
             self.contentView.addSubview(personalImage!)
             personalImage?.snp.makeConstraints({ (make) in
@@ -345,7 +399,7 @@ class MsgCell: UITableViewCell {
             make.left.equalToSuperview().offset(80)
             make.bottom.lessThanOrEqualTo(self.contentView)
         })
-        if msgType == 0 {
+        if msgType == 1 {
             msgView!.addSubview(label!)
             label?.snp.makeConstraints({ (make) in
                 make.width.lessThanOrEqualTo(msgView!).offset(-20)
@@ -354,7 +408,7 @@ class MsgCell: UITableViewCell {
                 make.centerY.equalTo(msgView!)
                 make.centerX.equalTo(msgView!)
             })
-        }else if msgType == 1{
+        }else if msgType == 2{
             msgView!.addSubview(imgeview!)
             imgeview?.snp.makeConstraints({ (make) in
                 make.width.lessThanOrEqualTo(200)
