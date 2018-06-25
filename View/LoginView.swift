@@ -9,13 +9,14 @@
 import UIKit
 
 class LoginController: UIViewController,UITextFieldDelegate {
-
+    let conn = SQLiteManager()
+    
     //用户名label
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = UIColor.gray
-        label.text = "NAME"
+        label.text = "yszSB"
         label.textAlignment = .center
 //        label.backgroundColor = UIColor.blue
         label.sizeToFit()
@@ -79,7 +80,6 @@ class LoginController: UIViewController,UITextFieldDelegate {
     private lazy var imageView = UIImageView(image: #imageLiteral(resourceName: "IMG_2697"))
     override func viewDidLoad() {
         super.viewDidLoad()
-      
         //背景图片
         self.view.addSubview(imageView)
         self.view.addSubview(nameLabel)
@@ -128,10 +128,23 @@ class LoginController: UIViewController,UITextFieldDelegate {
         let alertContoller = UIAlertController(title: "确定信息", message: "确认信息无误", preferredStyle: .actionSheet)
         let alertAction = UIAlertAction(title: "确认", style: .default) { (action) in
 //            self.navigationController?.pushViewController(LoginController(), animated: true)
-            self.navigationController?.dismiss(animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
+            if self.nameText.text == nil || self.pwdText.text == nil || self.nameText.text == "" || self.pwdText.text == ""{
+                return
+            }
+            let user = self.conn.getUser(userName: self.nameText.text!)
+            if  user.pwd == self.pwdText.text!{
+                self.navigationController?.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
+                self.conn.updateData(newName: "MINO", newPwd: "123", newState: true)
+            }else{
+                self.nameText.text = ""
+                self.pwdText.text = ""
+            }
         }
-        let noAction = UIAlertAction(title: "NO!!!", style: .cancel, handler: nil)
+        let noAction = UIAlertAction(title: "NO!!!!!", style: .cancel) { (action) in
+            self.nameText.text = ""
+            self.pwdText.text = ""
+        }
         alertContoller.addAction(alertAction)
         alertContoller.addAction(noAction)
         if let ppc = alertContoller.popoverPresentationController{

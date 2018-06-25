@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E2A4AE120DE7C9000741BE7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2A4AE020DE7C9000741BE7 /* libsqlite3.tbd */; };
 		3E62DF8E20D358840029E006 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E62DF8D20D358840029E006 /* MainController.swift */; };
 		3E86143E20D0D0D700B90F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86143D20D0D0D700B90F96 /* AppDelegate.swift */; };
 		3E86144020D0D0D700B90F96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86143F20D0D0D700B90F96 /* ViewController.swift */; };
@@ -49,12 +50,15 @@
 		3E86149920D0D24E00B90F96 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86147620D0D24E00B90F96 /* ConstraintLayoutSupport.swift */; };
 		3E86149A20D0D24E00B90F96 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86147720D0D24E00B90F96 /* ConstraintMaker.swift */; };
 		3E86149D20D0D39E00B90F96 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86149C20D0D39E00B90F96 /* LoginView.swift */; };
+		3EA1FBA920E09046004CEC25 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA1FBA820E09046004CEC25 /* DataBase.swift */; };
 		3EAB800020D8FEF900D50296 /* SecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAB7FFF20D8FEF900D50296 /* SecViewController.swift */; };
 		3EAB800220D8FF0600D50296 /* ThredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAB800120D8FF0600D50296 /* ThredViewController.swift */; };
 		3EAB800420D9038A00D50296 /* U2MsgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAB800320D9038A00D50296 /* U2MsgViewController.swift */; };
+		84A6C698CE86333D41DDBD9A /* Pods_Mino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E640BC1D0AF73FF37FAF852B /* Pods_Mino.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E2A4AE020DE7C9000741BE7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3E62DF8D20D358840029E006 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		3E86143A20D0D0D700B90F96 /* Mino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E86143D20D0D0D700B90F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,9 +104,13 @@
 		3E86147620D0D24E00B90F96 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		3E86147720D0D24E00B90F96 /* ConstraintMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
 		3E86149C20D0D39E00B90F96 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3EA1FBA820E09046004CEC25 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		3EAB7FFF20D8FEF900D50296 /* SecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecViewController.swift; sourceTree = "<group>"; };
 		3EAB800120D8FF0600D50296 /* ThredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThredViewController.swift; sourceTree = "<group>"; };
 		3EAB800320D9038A00D50296 /* U2MsgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = U2MsgViewController.swift; sourceTree = "<group>"; };
+		6643ED4D1C4CFF0F1FC2347D /* Pods-Mino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mino.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mino/Pods-Mino.release.xcconfig"; sourceTree = "<group>"; };
+		E464935414E30556B9C4B528 /* Pods-Mino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mino/Pods-Mino.debug.xcconfig"; sourceTree = "<group>"; };
+		E640BC1D0AF73FF37FAF852B /* Pods_Mino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,12 +118,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E2A4AE120DE7C9000741BE7 /* libsqlite3.tbd in Frameworks */,
+				84A6C698CE86333D41DDBD9A /* Pods_Mino.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E2A4ADF20DE7C8F00741BE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E2A4AE020DE7C9000741BE7 /* libsqlite3.tbd */,
+				E640BC1D0AF73FF37FAF852B /* Pods_Mino.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3E86143120D0D0D700B90F96 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +142,8 @@
 				3E86145220D0D14100B90F96 /* Lib */,
 				3E86143C20D0D0D700B90F96 /* Mino */,
 				3E86143B20D0D0D700B90F96 /* Products */,
+				3E2A4ADF20DE7C8F00741BE7 /* Frameworks */,
+				D751DFE3110C22AFA5F5C4F8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,8 +227,18 @@
 				3EAB7FFF20D8FEF900D50296 /* SecViewController.swift */,
 				3EAB800120D8FF0600D50296 /* ThredViewController.swift */,
 				3EAB800320D9038A00D50296 /* U2MsgViewController.swift */,
+				3EA1FBA820E09046004CEC25 /* DataBase.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D751DFE3110C22AFA5F5C4F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E464935414E30556B9C4B528 /* Pods-Mino.debug.xcconfig */,
+				6643ED4D1C4CFF0F1FC2347D /* Pods-Mino.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,9 +248,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E86144F20D0D0DA00B90F96 /* Build configuration list for PBXNativeTarget "Mino" */;
 			buildPhases = (
+				2185DC3439F1D59FC08C4846 /* [CP] Check Pods Manifest.lock */,
 				3E86143620D0D0D700B90F96 /* Sources */,
 				3E86143720D0D0D700B90F96 /* Frameworks */,
 				3E86143820D0D0D700B90F96 /* Resources */,
+				E01050B879E0E79D396821F0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,6 +309,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2185DC3439F1D59FC08C4846 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mino-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E01050B879E0E79D396821F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Mino/Pods-Mino-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mino/Pods-Mino-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3E86143620D0D0D700B90F96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -317,6 +389,7 @@
 				3E86148820D0D24E00B90F96 /* ConstraintConfig.swift in Sources */,
 				3E86149920D0D24E00B90F96 /* ConstraintLayoutSupport.swift in Sources */,
 				3E86149620D0D24E00B90F96 /* ConstraintMakerPriortizable.swift in Sources */,
+				3EA1FBA920E09046004CEC25 /* DataBase.swift in Sources */,
 				3E86148420D0D24E00B90F96 /* ConstraintConstantTarget.swift in Sources */,
 				3E86148520D0D24E00B90F96 /* ConstraintDSL.swift in Sources */,
 				3E86149520D0D24E00B90F96 /* ConstraintMultiplierTarget.swift in Sources */,
@@ -456,6 +529,7 @@
 		};
 		3E86145020D0D0DA00B90F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E464935414E30556B9C4B528 /* Pods-Mino.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -469,11 +543,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "~/workspace/swift/Mino/Pods";
 			};
 			name = Debug;
 		};
 		3E86145120D0D0DA00B90F96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6643ED4D1C4CFF0F1FC2347D /* Pods-Mino.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -487,6 +563,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "~/workspace/swift/Mino/Pods";
 			};
 			name = Release;
 		};

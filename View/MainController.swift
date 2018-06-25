@@ -9,8 +9,9 @@
 import UIKit
 
 class MainController: UIViewController,UITableViewDataSource,UITableViewDelegate{
-    
-    var arry:[String] = ["用户1", "用户2", "用户3"]
+    let conn = SQLiteManager()
+    var countArry = 1
+    var arry:[String] = ["用户1"]
     //模拟导航栏
     private lazy var toolBar: UIView = {
         let toolBar = UIView()
@@ -147,11 +148,31 @@ class MainController: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.isHidden = true
+        if !conn.getState(userName: "MINO") {
+            self.present(LoginController(), animated: false, completion: nil)
+        }
     }
-
     @objc func changeSite(_ sender: AnyObject) {
-        print("!@#!")
-        self.navigationController?.pushViewController(U2MsgViewController(), animated: true)
+        let label = "com.mino.demoQueue"
+        let qos =  DispatchQoS.default
+        let attributes = DispatchQueue.Attributes.concurrent
+        let autoreleaseFrequency = DispatchQueue.AutoreleaseFrequency.never
+        let queue = DispatchQueue(label: label, qos: qos, attributes: attributes, autoreleaseFrequency: autoreleaseFrequency, target: nil)
+//        let queue = DispatchQueue(label: label)
+        
+        queue.async {
+            while true{
+                self.countArry += 1
+//                self.arry.append("用户\(self.countArry)")
+                self.arry.insert("用户\(self.countArry)", at: 0)
+                DispatchQueue.main.sync {
+                    self.tableView.reloadData()
+//                    self.tableView.scrollToRow(at: IndexPath(row: self.arry.count - 1, section: 0), at: .bottom, animated: false)
+                }
+                sleep(4)
+            }
+        }
+        self.tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arry.count

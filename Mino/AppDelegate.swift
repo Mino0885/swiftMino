@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarC.viewControllers = [MainNavc,SecNavc,thredNavc]
         window?.rootViewController = tabBarC
         window?.makeKeyAndVisible()
+        
         return true
     }
 

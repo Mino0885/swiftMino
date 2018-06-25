@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import SQLite
+
 struct Msg {
     var msgType:Int?
     var msgSender:String?
     var msg:String?
 }
+
 class U2MsgViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
     var array = Array<Msg>()
     var flag = true
     var imgFlag = true
+//    let db = Connec
+    
     //模拟导航栏
     private lazy var toolBar: UIView = {
         let toolBar = UIView()
